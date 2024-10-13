@@ -113,26 +113,23 @@ struct ContentView: View {
             text3.draw(in: CGRect(x: 100, y: 270, width: 280, height: 20), withAttributes: textAttributes)
         }
         
+        /*
+         // this is not needed as the share sheet view controller can also save the image
+         
         // actually save the image onto photos app
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: combinedImage)
        //  UIImageWriteToSavedPhotosAlbum(combinedImage, nil, nil, nil)
-
+        */
+        print("combined image type : ", type(of: combinedImage))
         
-        /*
-         // commenting out the controller to export to Photos, Messages, etc.
-
-         // Present share sheet to save or message the image
-         let activityViewController = UIActivityViewController(activityItems: [combinedImage], applicationActivities: nil)
-
-        // Optional: Exclude specific activity types if necessary
-        // activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
-
+        // show the view controller to export image as preferred
+        let shareSheetVC = UIActivityViewController(activityItems: [combinedImage], applicationActivities: nil)
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let rootViewController = windowScene.windows.first?.rootViewController {
-            rootViewController.present(activityViewController, animated: true, completion: nil)
+            rootViewController.present(shareSheetVC, animated: true)
         }
-         */
+  
     }
     // Function to count syllables in a given string
     private func countSyllables(_ text: String) -> Int {
