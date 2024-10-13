@@ -44,7 +44,7 @@ struct ContentView: View {
                     TextField("Enter text 1", text: $textField1)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
-                    Text("\(countSyllables(textField1))")
+                    syllableCountColor(for: textField1, maxCount: 5)
                         .frame(width: 30, alignment: .leading)
                 }
 
@@ -52,7 +52,7 @@ struct ContentView: View {
                     TextField("Enter text 2", text: $textField2)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
-                    Text("\(countSyllables(textField2))")
+                    syllableCountColor(for: textField2, maxCount: 7)
                         .frame(width: 30, alignment: .leading)
                 }
 
@@ -60,7 +60,7 @@ struct ContentView: View {
                     TextField("Enter text 3", text: $textField3)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
-                    Text("\(countSyllables(textField3))")
+                    syllableCountColor(for: textField3, maxCount: 5)
                         .frame(width: 30, alignment: .leading)
                 }
             }
@@ -135,6 +135,12 @@ struct ContentView: View {
             .reduce(0) { $0 + countSyllablesInWord($1) }
         return syllableCount
     }
+    private func syllableCountColor(for text: String, maxCount: Int) -> some View {
+        let count = countSyllables(text)
+        let color: Color = (textField1 == text || textField3 == text) && count > maxCount || textField2 == text && count > maxCount ? .orange : .gray
+        return Text("\(count)").foregroundColor(color)
+    }
+
 
     private func countSyllablesInWord(_ word: String) -> Int {
         let vowels = "aeiouy"
