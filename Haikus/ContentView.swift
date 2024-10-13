@@ -2,6 +2,7 @@
 //  ContentView.swift
 //  Haikus
 //
+// future reference - https://arkumari2000.medium.com/clicking-or-uploading-pictures-in-ios-983084ab40ed
 //
 import SwiftUI
 import PhotosUI
@@ -67,10 +68,7 @@ struct ContentView: View {
 
             // Publish button
             Button(action: {
-                // Print the content of the text fields
-                print("Text Field 1: \(textField1)")
-                print("Text Field 2: \(textField2)")
-                print("Text Field 3: \(textField3)")
+                saveImageWithText()
             }) {
                 Text("Publish!")
                     .foregroundColor(.white)
@@ -91,6 +89,42 @@ struct ContentView: View {
         }
     }
 
+    private func saveImageWithText() {
+        guard let image = selectedImage else { return }
+
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 400))
+        let combinedImage = renderer.image { context in
+            // Draw the selected image
+            image.draw(in: CGRect(x: 0, y: 0, width: 300, height: 200))
+
+            // Draw the text fields below the image, format it with a rupi kaur vibe
+            let textAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 16),
+                .foregroundColor: UIColor.black
+            ]
+
+            let text1 = textField1 as NSString
+            text1.draw(in: CGRect(x: 10, y: 210, width: 280, height: 20), withAttributes: textAttributes)
+
+            let text2 = textField2 as NSString
+            text2.draw(in: CGRect(x: 50, y: 240, width: 280, height: 20), withAttributes: textAttributes)
+
+            let text3 = textField3 as NSString
+            text3.draw(in: CGRect(x: 100, y: 270, width: 280, height: 20), withAttributes: textAttributes)
+        }
+
+        
+        // Present share sheet to save or message the image
+        let activityViewController = UIActivityViewController(activityItems: [combinedImage], applicationActivities: nil)
+
+        // Optional: Exclude specific activity types if necessary
+        // activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
+
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
+    }
     // Function to count syllables in a given string
     private func countSyllables(_ text: String) -> Int {
         let syllableCount = text
@@ -183,7 +217,6 @@ struct MyApp: App {
         }
     }
 }
-
 
 
 /*
