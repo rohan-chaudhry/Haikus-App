@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C6B17892C82DA5600170A2B /* HaikusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B17882C82DA5600170A2B /* HaikusApp.swift */; };
 		1C6B178B2C82DA5600170A2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B178A2C82DA5600170A2B /* ContentView.swift */; };
 		1C6B178D2C82DA5800170A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B178C2C82DA5800170A2B /* Assets.xcassets */; };
 		1C6B17902C82DA5800170A2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B178F2C82DA5800170A2B /* Preview Assets.xcassets */; };
 		1C6B179A2C82DA5800170A2B /* HaikusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B17992C82DA5800170A2B /* HaikusTests.swift */; };
 		1C6B17A42C82DA5800170A2B /* HaikusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B17A32C82DA5800170A2B /* HaikusUITests.swift */; };
 		1C6B17A62C82DA5800170A2B /* HaikusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B17A52C82DA5800170A2B /* HaikusUITestsLaunchTests.swift */; };
+		1C6B17B52C82DAF600170A2B /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B17B42C82DAF600170A2B /* Property List.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		1C6B17852C82DA5600170A2B /* Haikus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haikus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C6B17882C82DA5600170A2B /* HaikusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikusApp.swift; sourceTree = "<group>"; };
 		1C6B178A2C82DA5600170A2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1C6B178C2C82DA5800170A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C6B178F2C82DA5800170A2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		1C6B179F2C82DA5800170A2B /* HaikusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaikusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6B17A32C82DA5800170A2B /* HaikusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikusUITests.swift; sourceTree = "<group>"; };
 		1C6B17A52C82DA5800170A2B /* HaikusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1C6B17B42C82DAF600170A2B /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 		1C6B17872C82DA5600170A2B /* Haikus */ = {
 			isa = PBXGroup;
 			children = (
-				1C6B17882C82DA5600170A2B /* HaikusApp.swift */,
 				1C6B178A2C82DA5600170A2B /* ContentView.swift */,
+				1C6B17B42C82DAF600170A2B /* Property List.plist */,
 				1C6B178C2C82DA5800170A2B /* Assets.xcassets */,
 				1C6B178E2C82DA5800170A2B /* Preview Content */,
 			);
@@ -231,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6B17B52C82DAF600170A2B /* Property List.plist in Resources */,
 				1C6B17902C82DA5800170A2B /* Preview Assets.xcassets in Resources */,
 				1C6B178D2C82DA5800170A2B /* Assets.xcassets in Resources */,
 			);
@@ -258,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C6B178B2C82DA5600170A2B /* ContentView.swift in Sources */,
-				1C6B17892C82DA5600170A2B /* HaikusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
