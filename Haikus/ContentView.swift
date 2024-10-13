@@ -113,7 +113,10 @@ struct ContentView: View {
             text3.draw(in: CGRect(x: 100, y: 270, width: 280, height: 20), withAttributes: textAttributes)
         }
         
-        UIImageWriteToSavedPhotosAlbum(combinedImage, nil, nil, nil)
+        // actually save the image onto photos app
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: combinedImage)
+       //  UIImageWriteToSavedPhotosAlbum(combinedImage, nil, nil, nil)
 
         
         /*
