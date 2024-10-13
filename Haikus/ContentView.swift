@@ -112,10 +112,15 @@ struct ContentView: View {
             let text3 = textField3 as NSString
             text3.draw(in: CGRect(x: 100, y: 270, width: 280, height: 20), withAttributes: textAttributes)
         }
+        
+        UIImageWriteToSavedPhotosAlbum(combinedImage, nil, nil, nil)
 
         
-        // Present share sheet to save or message the image
-        let activityViewController = UIActivityViewController(activityItems: [combinedImage], applicationActivities: nil)
+        /*
+         // commenting out the controller to export to Photos, Messages, etc.
+
+         // Present share sheet to save or message the image
+         let activityViewController = UIActivityViewController(activityItems: [combinedImage], applicationActivities: nil)
 
         // Optional: Exclude specific activity types if necessary
         // activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
@@ -124,6 +129,7 @@ struct ContentView: View {
            let rootViewController = windowScene.windows.first?.rootViewController {
             rootViewController.present(activityViewController, animated: true, completion: nil)
         }
+         */
     }
     // Function to count syllables in a given string
     private func countSyllables(_ text: String) -> Int {
