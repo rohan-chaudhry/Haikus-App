@@ -79,6 +79,18 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             .padding(.top, 20)
+            
+            // Refresh button to start over
+                        Button(action: {
+                            refreshFields()
+                        }) {
+                            Text("Refresh")
+                              .foregroundColor(.gray)
+                                .padding()
+                                .background(Color.white)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 10)
         }
         .padding()
         .sheet(isPresented: $isImagePickerPresented) {
@@ -88,6 +100,14 @@ struct ContentView: View {
             }
         }
     }
+    
+    private func refreshFields() {
+            // Clear the image and text fields
+            selectedImage = nil
+            textField1 = ""
+            textField2 = ""
+            textField3 = ""
+        }
 
     private func saveImageWithText() {
         guard let image = selectedImage else { return }
@@ -141,6 +161,7 @@ struct ContentView: View {
             .reduce(0) { $0 + countSyllablesInWord($1) }
         return syllableCount
     }
+    
     private func syllableCountColor(for text: String, maxCount: Int) -> some View {
         let count = countSyllables(text)
         let color: Color = (textField1 == text || textField3 == text) && count > maxCount || textField2 == text && count > maxCount ? .orange : .gray
